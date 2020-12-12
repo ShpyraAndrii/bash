@@ -1,0 +1,19 @@
+#!/bin/bash
+
+number_to_guess=$(($RANDOM / 100));
+
+while [ true ] 
+do
+    echo "Try to guess a number"
+    read user_answer
+    if [ $number_to_guess -eq $user_answer ]
+    then
+        echo "Congratulations, You win!"
+        exit 0
+    elif [ $number_to_guess -lt $user_answer ]
+    then
+        echo "The number is less than ${user_answer}"
+    else 
+        echo "The number is greater than ${user_answer}"
+    fi
+done
