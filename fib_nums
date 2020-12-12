@@ -1,0 +1,25 @@
+#!/bin/bash
+
+n1=0;
+n2=1;
+
+number_reg_exp='^[0-9]+$';
+
+echo "Enter a number that represents length of Fibonacci sequence:";
+
+read user_response
+
+if ! [[ $user_response =~ $number_reg_exp ]];
+then
+    echo "The input is not an integer";
+fi
+
+for (( i=0; i<user_response-2; i++ ))
+do
+    next_num=$((n1 + n2));
+    n1=$n2
+    n2=$next_num
+done
+
+echo "The Fibonacci sequence number is - ${n2}"
+
